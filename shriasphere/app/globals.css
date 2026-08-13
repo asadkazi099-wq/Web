@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #08080A;
+  color: #F7F7F8;
+}
+
+.font-bn, .font-bnBody {
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+::selection {
+  background: #E2242C;
+  color: #fff;
+}
+
+.container-edge {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-edge {
+    padding-inline: 2.5rem;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #E2242C;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* subtle film-grain texture over dark surfaces */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0);
+  background-size: 3px 3px;
+  pointer-events: none;
+  opacity: 0.4;
+}
